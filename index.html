@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            color: black;
+        }
+
+        button:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solar System Fact</h1>
+        <p id="fact"></p>
+        <button id="nextFactButton">Show Next Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "The solar system is about 4.6 billion years old.",
+            "There are eight planets in the solar system: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
+            "The largest planet in the solar system is Jupiter, which is more than 11 times the diameter of Earth.",
+            "The smallest planet is Mercury, which is only about 38% the size of Earth.",
+            "The sun contains 99.86% of the total mass of the solar system.",
+            "Saturn is known for its prominent ring system, which is made up of ice and rock particles.",
+            "Venus is the hottest planet in the solar system, with surface temperatures reaching up to 900 degrees Fahrenheit (475 degrees Celsius).",
+            "Mars has the largest volcano in the solar system, Olympus Mons, which is about 13.6 miles (22 kilometers) high.",
+            "Neptune has the strongest winds in the solar system, with speeds reaching up to 1,200 miles per hour (2,000 kilometers per hour).",
+            "Pluto was reclassified as a dwarf planet in 2006 and is no longer considered one of the main planets in the solar system."
+        ];
+
+        let currentFactIndex = 0;
+
+        const factElement = document.getElementById('fact');
+        const nextFactButton = document.getElementById('nextFactButton');
+
+        function showNextFact() {
+            factElement.textContent = facts[currentFactIndex];
+            currentFactIndex = (currentFactIndex + 1) % facts.length; // Loop back to the start
+        }
+
+        nextFactButton.addEventListener('click', showNextFact);
+
+        // Show the first fact on page load
+        showNextFact();
+    </script>
+</body>
+</html>
